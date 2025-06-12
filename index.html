@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchayat Season 4 Fan Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2c5282;
+            --accent-color: #4299e1;
+            --light-color: #f7fafc;
+            --dark-color: #1a202c;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #4299e1 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(26, 54, 93, 0.9);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #a5d8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav {
+            background: rgba(44, 82, 130, 0.9);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            position: relative;
+            font-size: 1.8rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+            margin: 0.5rem auto;
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .episode-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .episode-content {
+            padding: 1.5rem;
+        }
+
+        .episode-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .episode-desc {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-color), #3182ce);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #3182ce, var(--accent-color));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-block {
+            display: block;
+            text-align: center;
+        }
+
+        .trailer-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .video-player {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-player iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: block;
+        }
+
+        .admin-panel {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin: 3rem 0;
+            display: none;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-family: inherit;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .website-down-message {
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .coming-soon-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .coming-soon-message.show {
+            display: block;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            transform: translateX(200%);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        footer {
+            background: rgba(26, 54, 93, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .nav-container {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background: rgba(44, 82, 130, 0.95);
+                padding: 1rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 99;
+            }
+
+            .nav-container.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .episodes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <h1>Panchayat Season 4 Fan Hub</h1>
+        <p>Your ultimate destination for all things Panchayat</p>
+    </header>
+
+    <nav data-aos="fade-down" data-aos-delay="100">
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        <div class="nav-container" id="nav-container">
+            <a href="#trailer" class="nav-link"><i class="fas fa-play"></i> Trailer</a>
+            <a href="#admin" class="nav-link"><i class="fas fa-lock"></i> Admin</a>
+        </div>
+    </nav>
+
+    <div class="container" id="main-content">
+        <section id="episodes" data-aos="fade-up">
+            <h2 class="section-title">Latest Episodes</h2>
+            <div class="episodes-grid">
+                <!-- Episode 1 -->
+                <div class="episode-card" id="episode1" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 1 - New Beginnings</h3>
+                        <p class="episode-desc">Abhishek faces new challenges as he returns to Phulera. The villagers have big expectations.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 2 -->
+                <div class="episode-card" id="episode2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 2 - Political Winds</h3>
+                        <p class="episode-desc">Election season brings unexpected alliances. Pradhan Ji has a master plan.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 3 -->
+                <div class="episode-card" id="episode3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 3 - Family Matters</h3>
+                        <p class="episode-desc">Abhishek's family visits Phulera, causing both joy and chaos in the village.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 4 -->
+                <div class="episode-card" id="episode4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 4 - The Festival</h3>
+                        <p class="episode-desc">Phulera prepares for its annual festival, but not everything goes according to plan.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 5 -->
+                <div class="episode-card" id="episode5" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 5 - The Challenge</h3>
+                        <p class="episode-desc">A government inspection puts everyone on edge. Vikas has a surprising solution.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 6 -->
+                <div class="episode-card" id="episode6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 6 - Secrets Revealed</h3>
+                        <p class="episode-desc">Long-held secrets come to light, changing relationships in Phulera forever.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 7 -->
+                <div class="episode-card" id="episode7" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 7 - The Decision</h3>
+                        <p class="episode-desc">Abhishek faces a career-changing decision. The villagers have their own opinions.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+
+                <!-- Episode 8 -->
+                <div class="episode-card" id="episode8" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="episode-content">
+                        <h3 class="episode-title">Episode 8 - New Horizons</h3>
+                        <p class="episode-desc">Season finale brings changes for everyone in Phulera. Some goodbyes are harder than others.</p>
+                        <button class="btn btn-block watch-now"><i class="fas fa-play"></i> Watch Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trailer" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">Official Trailer</h2>
+            <div class="trailer-container">
+                <div class="video-player" data-aos="zoom-in" data-aos-delay="300">
+                    <iframe src="https://www.youtube.com/embed/SWj7ZJz-Yjw" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" data-aos="fade-up" data-aos-delay="400">
+            <div id="login-container" class="login-container">
+                <h2 class="section-title">Admin Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="admin-id">Admin ID</label>
+                        <input type="text" id="admin-id" required placeholder="Enter admin ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" required placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-block"><i class="fas fa-sign-in-alt"></i> Login</button>
+                </form>
+            </div>
+
+            <div id="admin-panel" class="admin-panel hidden">
+                <h2 class="section-title">Admin Dashboard</h2>
+                <form class="admin-form" id="admin-form">
+                    <div class="form-group">
+                        <label for="website-status">Website Status</label>
+                        <select id="website-status">
+                            <option value="up">Up</option>
+                            <option value="down">Down</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="episode-select">Select Episode</label>
+                        <select id="episode-select">
+                            <option value="1">Episode 1</option>
+                            <option value="2">Episode 2</option>
+                            <option value="3">Episode 3</option>
+                            <option value="4">Episode 4</option>
+                            <option value="5">Episode 5</option>
+                            <option value="6">Episode 6</option>
+                            <option value="7">Episode 7</option>
+                            <option value="8">Episode 8</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="episode-title">Episode Title</label>
+                        <input type="text" id="episode-title" placeholder="E.g., Episode 1 - New Beginnings">
+                    </div>
+                    <div class="form-group">
+                        <label for="episode-desc">Episode Description</label>
+                        <textarea id="episode-desc" placeholder="Enter episode description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block"><i class="fas fa-save"></i> Update Settings</button>
+                    <button type="button" id="logout-btn" class="btn btn-block" style="margin-top: 1rem;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="website-down" class="website-down-message hidden" data-aos="fade-up">
+        <h2>Website is currently down for maintenance</h2>
+        <p>Please check back later.</p>
+    </div>
+
+    <div id="coming-soon" class="coming-soon-message" data-aos="zoom-in">
+        <h2>Coming Soon</h2>
+        <p>Available on 26 June 2025. Please wait!</p>
+    </div>
+
+    <div id="notification" class="notification" data-aos="fade-left">
+        <span id="notification-text">Action completed successfully!</span>
+    </div>
+
+    <footer data-aos="fade-up" data-aos-delay="500">
+        <p>© 2025 Panchayat Season 4 Fan Hub. Created by Murli Kr. This is an unofficial fan site.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize website status from localStorage
+        const mainContent = document.getElementById('main-content');
+        const websiteDownMessage = document.getElementById('website-down');
+        let websiteStatus = localStorage.getItem('websiteStatus') || 'up';
+
+        function updateWebsiteStatus() {
+            if (websiteStatus === 'down') {
+                mainContent.classList.add('hidden');
+                websiteDownMessage.classList.remove('hidden');
+            } else {
+                mainContent.classList.remove('hidden');
+                websiteDownMessage.classList.add('hidden');
+            }
+            AOS.refresh();
+        }
+
+        updateWebsiteStatus();
+
+        // Load episode data from localStorage
+        for (let i = 1; i <= 8; i++) {
+            const title = localStorage.getItem(`episode${i}-title`);
+            const desc = localStorage.getItem(`episode${i}-desc`);
+            const episodeCard = document.getElementById(`episode${i}`);
+            if (episodeCard && title && desc) {
+                episodeCard.querySelector('.episode-title').textContent = title;
+                episodeCard.querySelector('.episode-desc').textContent = desc;
+            }
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navContainer = document.getElementById('nav-container');
+
+        if (hamburger && navContainer) {
+            hamburger.addEventListener('click', () => {
+                navContainer.classList.toggle('active');
+                hamburger.innerHTML = navContainer.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
+
+        // Coming Soon Message for Watch Now Buttons
+        const watchNowButtons = document.querySelectorAll('.watch-now');
+        const comingSoonMessage = document.getElementById('coming-soon');
+
+        if (watchNowButtons && comingSoonMessage) {
+            watchNowButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    comingSoonMessage.classList.add('show');
+                    setTimeout(() => {
+                        comingSoonMessage.classList.remove('show');
+                    }, 3000);
+                });
+            });
+        }
+
+        // Admin Login Functionality
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const adminId = document.getElementById('admin-id').value;
+                const password = document.getElementById('admin-password').value;
+
+                if (adminId === 'admin' && password === '1234') {
+                    document.getElementById('login-container').classList.add('hidden');
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                    document.getElementById('website-status').value = websiteStatus;
+                    showNotification('Login successful!');
+                    AOS.refresh();
+                } else {
+                    showNotification('Invalid credentials. Please try again.');
+                }
+            });
+        }
+
+        // Admin Form Submission
+        const adminForm = document.getElementById('admin-form');
+        if (adminForm) {
+            adminForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Update website status
+                websiteStatus = document.getElementById('website-status').value;
+                localStorage.setItem('websiteStatus', websiteStatus);
+                updateWebsiteStatus();
+
+                // Update episode details
+                const episodeNum = document.getElementById('episode-select').value;
+                const title = document.getElementById('episode-title').value;
+                const desc = document.getElementById('episode-desc').value;
+
+                const episodeCard = document.getElementById(`episode${episodeNum}`);
+                if (episodeCard) {
+                    episodeCard.querySelector('.episode-title').textContent = title;
+                    episodeCard.querySelector('.episode-desc').textContent = desc;
+                    localStorage.setItem(`episode${episodeNum}-title`, title);
+                    localStorage.setItem(`episode${episodeNum}-desc`, desc);
+                    showNotification(`Settings and Episode ${episodeNum} updated successfully!`);
+                } else {
+                    showNotification(`Error: Episode ${episodeNum} not found!`);
+                }
+
+                this.reset();
+                document.getElementById('website-status').value = websiteStatus;
+                AOS.refresh();
+            });
+        }
+
+        // Logout Functionality
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                document.getElementById('admin-panel').classList.add('hidden');
+                document.getElementById('login-container').classList.remove('hidden');
+                document.getElementById('login-form').reset();
+                showNotification('Logged out successfully!');
+                AOS.refresh();
+            });
+        }
+
+        // Notification function
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            if (notification && notificationText) {
+                notificationText.textContent = message;
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    if ('scrollBehavior' in document.documentElement.style) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'auto'
+                        });
+                    }
+                    // Close mobile menu after clicking a link
+                    if (navContainer.classList.contains('active')) {
+                        navContainer.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
